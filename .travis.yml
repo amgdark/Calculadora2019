@@ -1,17 +1,26 @@
 language: python
 python:
-  - "3.7"
+  - "2.7"
 
+matrix:
+  include:
+    - python: 2.7
+    - python: 3.4
+    - python: 3.5
+    - python: 3.6
+    - python: 3.7
+      dist: xenial
+      sudo: true
 install: 
-  - sudo apt-get install build-essential checkinstall
-  - sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev -y
-  - cd /usr/src
-  - sudo wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
-  - sudo tar xzf Python-3.7.2.tgz
-  - cd Python-3.7.2
-  - sudo ./configure --enable-optimizations
-  - sudo make altinstall
-  
+  # - sudo apt-get install build-essential checkinstall
+  # - sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev -y
+  # - cd /usr/src
+  # - sudo wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+  # - sudo tar xzf Python-3.7.2.tgz
+  # - cd Python-3.7.2
+  # - sudo ./configure --enable-optimizations
+  # - sudo make altinstall
+
   - echo "Aquí se instalan las dependencias"
 #   - pip install django
 
@@ -20,7 +29,7 @@ before_script:
 
 script: 
   - echo "Pruebas unitarias de Calculadora 2019"
-  - python Test*.py
+  - python3.7 Test*.py
   - echo "Finalizar"
 
 notifications:
