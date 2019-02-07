@@ -29,7 +29,7 @@ before_script:
 
 script: 
   - echo "Pruebas unitarias de Calculadora 2019"
-  - python3.7 Test*.py
+  - python Test*.py
   - echo "Finalizar"
 
 notifications:
